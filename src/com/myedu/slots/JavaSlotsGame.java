@@ -1,3 +1,5 @@
+package com.myedu.slots;
+
 import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
@@ -47,23 +49,21 @@ public class JavaSlotsGame {
             printRow(row);
             payout = getPayout(row, bet);
 
-            if (payout > 0){
+            if (payout > 0) {
                 System.out.println("You won $" + payout);
                 balance += payout;
-            } else{
+            } else {
                 System.out.println("Sorry you lost this round");
             }
 
             System.out.print("Do you want to play again? (Y/N): ");
             playAgain = scanner.nextLine().toUpperCase();
 
-            if (!playAgain.equals("Y")){
+            if (!playAgain.equals("Y")) {
                 break;
             }
         }
-
         System.out.println("Game over! Your final balance is $" + balance);
-
         scanner.close();
     }
 
@@ -74,18 +74,20 @@ public class JavaSlotsGame {
         Random random = new Random();
 
 
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             row[i] = symbols[random.nextInt(symbols.length)];
         }
         return row;
     }
-    static void printRow(String[] row){
+
+    static void printRow(String[] row) {
         System.out.println(" " + String.join(" | ", row));
     }
-    static int getPayout(String[] row, int bet){
 
-        if (row[0].equals(row[1]) && row[1].equals(row[2])){
-            return switch (row[1]){
+    static int getPayout(String[] row, int bet) {
+
+        if (row[0].equals(row[1]) && row[1].equals(row[2])) {
+            return switch (row[1]) {
                 case "🍒" -> bet * 3;
                 case "🍉" -> bet * 4;
                 case "🍋" -> bet * 5;
@@ -93,9 +95,8 @@ public class JavaSlotsGame {
                 case "⭐" -> bet * 20;
                 default -> 0;
             };
-        }
-        else if (row[0].equals(row[1])){
-            return switch (row[0]){
+        } else if (row[0].equals(row[1])) {
+            return switch (row[0]) {
                 case "🍒" -> bet * 2;
                 case "🍉" -> bet * 3;
                 case "🍋" -> bet * 4;
@@ -103,9 +104,8 @@ public class JavaSlotsGame {
                 case "⭐" -> bet * 10;
                 default -> 0;
             };
-        }
-        else if (row[1].equals(row[2])){
-            return switch (row[1]){
+        } else if (row[1].equals(row[2])) {
+            return switch (row[1]) {
                 case "🍒" -> bet * 2;
                 case "🍉" -> bet * 3;
                 case "🍋" -> bet * 4;

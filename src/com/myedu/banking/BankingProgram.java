@@ -1,3 +1,5 @@
+package com.myedu.banking;
+
 import java.util.Locale;
 import java.util.Scanner;
 

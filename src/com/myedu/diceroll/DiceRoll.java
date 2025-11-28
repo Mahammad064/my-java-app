@@ -1,4 +1,5 @@
-import java.awt.desktop.SystemEventListener;
+package com.myedu.diceroll;
+
 import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
